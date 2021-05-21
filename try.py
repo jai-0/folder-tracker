@@ -6,7 +6,7 @@ from watchdog.events import FileSystemEventHandler
   
 class OnMyWatch:
     # Set the directory on watch
-    watchDirectory = "/give / the / address / of / directory"
+    watchDirectory = r"C:\Users\Atharva\AppData\Local\Packages\Microsoft.ScreenSketch_8wekyb3d8bbwe\TempState"
   
     def __init__(self):
         self.observer = Observer()
@@ -35,9 +35,6 @@ class Handler(FileSystemEventHandler):
         elif event.event_type == 'created':
             # Event is created, you can process it now
             print("Watchdog received created event - % s." % event.src_path)
-        elif event.event_type == 'modified':
-            # Event is modified, you can process it now
-            print("Watchdog received modified event - % s." % event.src_path)
               
   
 if __name__ == '__main__':

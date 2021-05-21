@@ -7,11 +7,12 @@ class ToWatch:
     watchDirectory = r"C:\Users\Atharva\AppData\Local\Packages\Microsoft.ScreenSketch_8wekyb3d8bbwe\TempState" #your directory, in this case its the temperory snip and sketch folder for me
 
     def __init__(self):
-        self.oberver=Observer()
+        self.oberver = Observer()
         
     def run(self):
+
         event_handler=Handler()
-        self.observer.schedule(event_handler,self.watchDirectory,recursive=True)
+        self.observer.schedule(event_handler, self.watchDirectory, recursive = True)
         self.observer.start()
         try:
             while True:

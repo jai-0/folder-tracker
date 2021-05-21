@@ -37,7 +37,7 @@ class Handler(FileSystemEventHandler):
             # Event is created, you can process it now
             print("Watchdog received created event - % s." % event.src_path)
             filename=event.src_path.split('\\')[-1]  #get name of file
-            output=r"D:/Atharva/Pictures/"+filename    #destination foulder
+            output=r"D:/Atharva/Pictures/"+filename    #destination folder
             shutil.copy(event.src_path,output)
             
   

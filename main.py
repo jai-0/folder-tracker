@@ -39,7 +39,7 @@ class Handler(FileSystemEventHandler):
             filename=event.src_path.split('\\')[-1]  #get name of file
             output=r"D:/Atharva/Pictures/"+filename    #destination folder
             shutil.copy(event.src_path,output)
-            
+        
   
 if __name__ == '__main__':
     watch = OnMyWatch()

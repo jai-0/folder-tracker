@@ -1,17 +1,17 @@
-import watchdog
+
 from watchdog.events  import FileSystemEventHandler
 from watchdog.observers import Observer
 import time
 import sys
-class ToWatch:
+
+class OnMyWatch:
     watchDirectory = r"C:\Users\Atharva\AppData\Local\Packages\Microsoft.ScreenSketch_8wekyb3d8bbwe\TempState" #your directory, in this case its the temperory snip and sketch folder for me
 
     def __init__(self):
-        self.oberver = Observer()
+        self.observer = Observer()
         
     def run(self):
-
-        event_handler=Handler()
+        event_handler = Handler()
         self.observer.schedule(event_handler, self.watchDirectory, recursive = True)
         self.observer.start()
         try:
@@ -22,17 +22,21 @@ class ToWatch:
             print("Observer Stopped")
   
         self.observer.join()
+  
+        self.observer.join()
+
+
 class Handler(FileSystemEventHandler):
+  
     @staticmethod
-    def on_any_change(event):
+    def on_any_event(event):
         if event.is_directory:
             return None
   
         elif event.event_type == 'created':
             # Event is created, you can process it now
             print("Watchdog received created event - % s." % event.src_path)
-            print (event.src_path)
   
 if __name__ == '__main__':
-    watch = ToWatch()
+    watch = OnMyWatch()
     watch.run()
